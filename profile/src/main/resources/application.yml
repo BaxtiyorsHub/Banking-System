@@ -1,1 +1,30 @@
-spring.application.name=profile
+spring:
+  application:
+    name: "profile"
+
+  profiles:
+    active: "dev"
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/Profile_db"
+    username: "Baxtiyor"
+    password: "root"
+  jpa:
+    hibernate.ddl-auto: create
+    show-sql: true
+
+server:
+  port: 8082
+  url: "http://localhost:${server.port}"
+  version: "1.0"
+
+accounts:
+  message: "Profile server message 1103"
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

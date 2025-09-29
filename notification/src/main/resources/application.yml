@@ -1,1 +1,30 @@
-spring.application.name=notification
+spring:
+  application:
+    name: "notification"
+
+  profiles:
+    active: "dev"
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/Notification_db"
+    username: "Baxtiyor"
+    password: "root"
+  jpa:
+    hibernate.ddl-auto: create
+    show-sql: true
+
+server:
+  port: 8081
+  url: "http://localhost:${server.port}"
+  version: "1.0"
+
+accounts:
+  message: "Notification server message 1103"
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
