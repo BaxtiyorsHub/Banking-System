@@ -2,11 +2,15 @@ package card.services;
 
 import card.dto.CardDTO;
 import card.entities.CardEntity;
+import card.exps.CardBadExp;
 import card.repositories.CardRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 
 @Service
@@ -38,5 +42,13 @@ public class CardService {
         cardDTO.setPhone_number(cardEntity.getPhone_number());
         cardDTO.setExpiry_date(cardEntity.getExpiry_date());
         return cardDTO;
+    }
+
+    @SneakyThrows
+    public CardDTO getCardById(String id) {
+        return cardRepository
+                .findById(id)
+                .map(this::convertDTO)
+                .orElseThrow(() -> new CardBadExp("Card Not Found"));
     }
 }

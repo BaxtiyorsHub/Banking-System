@@ -5,10 +5,7 @@ import card.services.CardService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -22,5 +19,12 @@ public class CardController {
     public ResponseEntity<CardDTO> createCard(@Valid @RequestBody CardDTO cardDTO) {
         return ResponseEntity.ok(cardService.createCard(cardDTO));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CardDTO> getCard(@PathVariable String id) {
+        return ResponseEntity.ok(cardService.getCardById(id));
+    }
+
+
 
 }
