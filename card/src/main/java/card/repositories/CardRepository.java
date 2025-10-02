@@ -1,6 +1,6 @@
 package card.repositories;
 
-import card.enums.CardEntity;
+import card.entities.CardEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
