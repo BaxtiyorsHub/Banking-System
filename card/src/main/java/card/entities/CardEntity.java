@@ -18,35 +18,35 @@ public class CardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Setter(AccessLevel.NONE)
-    private String card_id;
+    private String cardId;
 
     @Column(name = "card_number", insertable = false, updatable = false)
-    private String card_number;
+    private String cardNumber;
 
     @Column(name = "card_type", updatable = false, insertable = false)
-    private String card_type;
+    private String cardType;
 
-    @Column(name = "card_amount")
-    private Double card_amount = 0.0;
+    @Column(name = "cardAmount")
+    private Double cardAmount = 0.0;
 
-    @Column(name = "card_status")
+    @Column(name = "cardStatus")
     @Enumerated(EnumType.STRING)
-    private CardStatus card_status = CardStatus.ACTIVE;
+    private CardStatus cardStatus = CardStatus.ACTIVE;
 
     @Column(name = "card_owner", updatable = false, insertable = false)
-    private String card_owner;
+    private String cardOwner;
 
     @Column(name = "cvv")
     private Short cvv;
 
     @Column(name = "phone_number")
-    private String phone_number;
+    private String phoneNumber;
 
     @Column(name = "expiry_date", updatable = false, insertable = false)
-    private LocalDate expiry_date = LocalDate.now().plusYears(5);
+    private LocalDate expiryDate = LocalDate.now().plusYears(5);
 
     @Column(name = "created_date", updatable = false, insertable = false)
     @CreationTimestamp
     @Setter(AccessLevel.NONE)
-    private LocalDateTime created_date;
+    private LocalDateTime createdDate;
 }

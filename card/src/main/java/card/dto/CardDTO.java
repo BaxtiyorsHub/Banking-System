@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CardDTO {
 
-    private String card_id;
+    private String cardId;
 
     @NotBlank(message = "Card number must not be empty")
     @Pattern(
@@ -25,24 +25,24 @@ public class CardDTO {
                     "|9860[0-9]{12})$",
             message = "Card number format is invalid"
     )
-    private String card_number;
+    private String cardNumber;
 
     @NotBlank(message = "Card type must not be empty")
-    private String card_type; // Bu avtomatik to‘ldiriladi (Validator.detectCardType)
+    private String cardType; // Bu avtomatik to‘ldiriladi (Validator.detectCardType)
 
     @NotNull(message = "Card amount must not be null")
     @PositiveOrZero(message = "Card amount cannot be negative")
-    private Double card_amount;
+    private Double cardAmount;
 
     @NotBlank(message = "Card owner must not be empty")
-    private String card_owner;
+    private String cardOwner;
 
     @NotBlank(message = "Phone number must not be empty")
     @Pattern(
             regexp = "^(?:\\+998|998|0)?9\\d{8}$",
             message = "Phone number must be valid Uzbekistan format"
     )
-    private String phone_number;
+    private String phoneNumber;
 
     @NotNull(message = "CVV must not be null")
     @Min(value = 100, message = "CVV must be more 3 digits")
@@ -51,8 +51,8 @@ public class CardDTO {
 
     @NotNull(message = "Expiry date must not be null")
     @Future(message = "Expiry date must be in the future")
-    private LocalDate expiry_date;
+    private LocalDate expiryDate;
 
-    private String card_status;
-    private LocalDateTime created_date;
+    private String cardStatus;
+    private LocalDateTime createdDate;
 }

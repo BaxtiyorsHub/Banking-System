@@ -15,7 +15,7 @@ public class CardController {
 
     private final CardService cardService;
 
-    @PostMapping()
+    @PostMapping("/create")
     public ResponseEntity<CardDTO> createCard(@Valid @RequestBody CardDTO cardDTO) {
         return ResponseEntity.ok(cardService.createCard(cardDTO));
     }
